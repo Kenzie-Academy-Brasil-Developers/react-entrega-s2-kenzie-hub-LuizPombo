@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 30%;
+  width: 20%;
   background-color: #fff;
 `;
 

@@ -1,6 +1,19 @@
 import { Container, Content, Header, Title, Body } from "./styles";
+import { useForm } from "react-hook-form";
+import api from "../../services/api";
 
-const Modal = ({ sendUpdate, title, status, register, modal }) => {
+const Modal = ({ sendUpdate, title, status, register, modal, id, token }) => {
+  const onSubmitUpdate = (status) => {
+    console.log(id);
+    api
+      .put(
+        `/users/techs/${id}`,
+        { status: status },
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then((response) => console.log(response));
+  };
+  const { handleSubmit } = useForm();
   if (modal) {
     return null;
   }
@@ -12,12 +25,13 @@ const Modal = ({ sendUpdate, title, status, register, modal }) => {
         </Header>
 
         <Body>
-          <form>
+          <form onSubmit={handleSubmit(onSubmitUpdate)}>
             <input {...register(status)} placeholder="New status" />
+            <button type="submit">Send</button>
           </form>
         </Body>
         <Header>
-          <button onClick={sendUpdate}>Send</button>
+          <button onClick={sendUpdate}>close</button>
         </Header>
       </Content>
     </Container>

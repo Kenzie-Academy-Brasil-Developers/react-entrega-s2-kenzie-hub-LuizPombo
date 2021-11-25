@@ -8,6 +8,8 @@ function Card({
   sendUpdate,
   register,
   modal,
+  id,
+  token,
 }) {
   return (
     <div>
@@ -21,6 +23,8 @@ function Card({
         status={status}
         register={register}
         modal={modal}
+        id={id}
+        token={token}
       />
     </div>
   );

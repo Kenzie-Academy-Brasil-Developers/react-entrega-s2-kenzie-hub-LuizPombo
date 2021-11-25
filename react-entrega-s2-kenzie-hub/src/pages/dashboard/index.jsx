@@ -12,9 +12,9 @@ function Dashboard({ authenticated }) {
   const [token] = useState(
     JSON.parse(localStorage.getItem("@Kenzie:token")) || ""
   );
+  const userId = JSON.parse(localStorage.getItem("@Kenzie:id"));
 
   useEffect(() => {
-    const userId = JSON.parse(localStorage.getItem("@Kenzie:id"));
     api
       .get(`/users/${userId}`)
       .then((response) => setTech(response.data.techs));
@@ -33,6 +33,7 @@ function Dashboard({ authenticated }) {
       .then((response) => setTech([...tech, response.data]))
       .catch((err) => toast.error("please verify the technology name"));
   };
+
   const {
     register,
     formState: { errors },
@@ -73,6 +74,7 @@ function Dashboard({ authenticated }) {
         {tech.map((tech) => (
           <Card
             key={tech.id}
+            id={tech.id}
             title={tech.title}
             status={tech.status}
             onClick={() => add()}
@@ -80,6 +82,7 @@ function Dashboard({ authenticated }) {
             sendUpdate={() => sendUpdate()}
             register={register}
             modal={modal}
+            token={token}
           />
         ))}
       </div>
