@@ -4,6 +4,7 @@ import api from "../../services/api";
 
 const Modal = ({ sendUpdate, title, status, register, modal, id, token }) => {
   const onSubmitUpdate = (status) => {
+    console.log(status);
     console.log(id);
     api
       .put(

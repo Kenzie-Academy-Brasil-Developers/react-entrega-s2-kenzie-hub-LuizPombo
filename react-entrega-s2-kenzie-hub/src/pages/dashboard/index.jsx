@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import Card from "../../components/card";
 import Input2 from "../../components/input2";
+import { Container, Cards } from "./styles";
 
 function Dashboard({ authenticated }) {
   const [tech, setTech] = useState([]);
@@ -62,7 +63,7 @@ function Dashboard({ authenticated }) {
   }
 
   return (
-    <>
+    <Container>
       <h1>dashboard</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <section>
@@ -70,7 +71,7 @@ function Dashboard({ authenticated }) {
           <button type="submit">Add</button>
         </section>
       </form>
-      <div>
+      <Cards>
         {tech.map((tech) => (
           <Card
             key={tech.id}
@@ -85,8 +86,8 @@ function Dashboard({ authenticated }) {
             token={token}
           />
         ))}
-      </div>
-    </>
+      </Cards>
+    </Container>
   );
 }
 

@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import { Container, Content } from "../home/styles";
 
 function Login({ authenticated, setAuthenticated }) {
   const schema = yup.object().shape({
@@ -47,8 +48,8 @@ function Login({ authenticated, setAuthenticated }) {
   }
 
   return (
-    <div>
-      <div>
+    <Container>
+      <Content>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1>Login</h1>
 
@@ -71,8 +72,8 @@ function Login({ authenticated, setAuthenticated }) {
             Don't have an account? <Link to="/signup">signup</Link> here
           </p>
         </form>
-      </div>
-    </div>
+      </Content>
+    </Container>
   );
 }
 

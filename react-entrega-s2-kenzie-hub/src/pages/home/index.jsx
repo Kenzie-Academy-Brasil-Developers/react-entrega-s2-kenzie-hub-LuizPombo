@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { Redirect, useHistory } from "react-router-dom";
+import { Container, Content } from "./styles";
 
 function Home({ authenticated }) {
   const history = useHistory();
@@ -13,11 +13,15 @@ function Home({ authenticated }) {
   }
 
   return (
-    <div>
-      <h1>Kenziehub</h1>
-      <button onClick={() => handleNavigation("/signup")}>Signup</button>
-      <button onClick={() => handleNavigation("/login")}>Login</button>
-    </div>
+    <Container>
+      <Content>
+        <div>
+          <h1>Kenziehub</h1>
+          <button onClick={() => handleNavigation("/signup")}>Signup</button>
+          <button onClick={() => handleNavigation("/login")}>Login</button>
+        </div>
+      </Content>
+    </Container>
   );
 }
 

@@ -1,6 +1,7 @@
 import Routes from "./routes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import GlobalStyles from "./styles/global";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         pauseOnHover
       />
       {/* Same as */}
+      <GlobalStyles />
       <ToastContainer />
       <Routes />
     </>

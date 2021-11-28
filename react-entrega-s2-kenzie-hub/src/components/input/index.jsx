@@ -1,13 +1,15 @@
+import { Container, InputContainer } from "./styles";
+
 function Input({ label, register, name, error, ...rest }) {
   return (
-    <div>
+    <Container>
       <div>
         {label} {!!error && <span> - {error} </span>}
       </div>
-      <div>
+      <InputContainer>
         <input {...register(name)} {...rest} />
-      </div>
-    </div>
+      </InputContainer>
+    </Container>
   );
 }
 
